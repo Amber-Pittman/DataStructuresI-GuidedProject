@@ -5,7 +5,7 @@ from math import sqrt
 def mult_2(n): # O(1) + O(1) + O(1) + O(1) = O(4) => O(1)
   print(n) # O(1)
   if n == 5: # O(1)
-    print("horray") #(1)
+    print("hooray") #(1)
   return n * 2  # O(1)
 
 
