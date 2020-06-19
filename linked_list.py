@@ -134,26 +134,27 @@ class LinkedList:
 
   # remove the head and return its value
   def remove_head(self):
-    # Is there a head?
-    if not self.head:      
-      # if list is empty, do nothing
-      return None
-    # if list only has one element, set head and tail to None
-    if self.head.next_node is None:
-      head_value = self.head.value
-      self.head = None
-      self.tail = None
-      return head_value
-    # otherwise we have more elements in the list
-    head_value = self.head.value
-    self.head = self.head.next_node
-    return head_value 
+    # # Artem's version
+    # # Is there a head?
+    # if not self.head:      
+    #   # if list is empty, do nothing
+    #   return None
+    # # if list only has one element, set head and tail to None
+    # if self.head.next_node is None:
+    #   head_value = self.head.value
+    #   self.head = None
+    #   self.tail = None
+    #   return head_value
+    # # otherwise we have more elements in the list
+    # head_value = self.head.value
+    # self.head = self.head.next_node
+    # return head_value 
 
-    # MATT MCCARLEY'S VERSION
-      # Is there a head?
-    if not self.head:
-      # if list empty do nothing - return nothing
-      return None
+    # # MATT MCCARLEY'S VERSION
+    #   # Is there a head?
+    # if not self.head:
+    #   # if list empty do nothing - return nothing
+    #   return None
 
     # if head has no next, there is a single element in the LL. 
     if not self.head.get_next():
@@ -184,25 +185,26 @@ class LinkedList:
     if self.head is None:
       return False
     
-    # Loop through each node, until we see the value, or we cannot go
-    #  further
-    current_node = self.head
+    # # Artem's Version
+    # # Loop through each node, until we see the value, or we cannot go
+    # #  further
+    # current_node = self.head
 
-    while current_node is not None:
-      # check if this is the node we are looking for
-      if current_node.value == value:
-        return True
+    # while current_node is not None:
+    #   # check if this is the node we are looking for
+    #   if current_node.value == value:
+    #     return True
 
-      # otherwise, go to the next node
-      current_node = current_node.next_node
-    return False 
+    #   # otherwise, go to the next node
+    #   current_node = current_node.next_node
+    # return False 
 
 
     # MATT MCCARLEY'S VERSION
     if not self.head:
       return False
 
-    # Get a ref to the node we're currently ad; update this as we traverse
+    # Get a ref to the node we're currently at; update this as we traverse through the LL
     current = self.head
     # Check to see if we're at a valid node
     while current:
