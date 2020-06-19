@@ -90,18 +90,18 @@ class LinkedList:
 
   def add_to_tail(self, value):
     # create a node to add
-    new_node = Node(value, None)
-    # check if list is empty
-    if self.head is None and self.tail is None:
-      self.head = new_node
-      self.tail = new_node
-    else:
-      # point the node at the current tail, to the new node
-      self.tail.next_node = new_node
-      self.tail = new_node
+    # new_node = Node(value, None)
+    # # check if list is empty
+    # if self.head is None and self.tail is None:
+    #   self.head = new_node
+    #   self.tail = new_node
+    # else:
+    #   # point the node at the current tail, to the new node
+    #   self.tail.next_node = new_node
+    #   self.tail = new_node
 
-    # Matt McCarley's version
-    #checking to see if this is equal to None
+    # # MATT MCCARLEY'S VERSION
+    # checking to see if this is equal to None
     new_node = Node(value, None)
     # this is if we have an empty list
     if not self.head:
@@ -109,7 +109,7 @@ class LinkedList:
       self.tail = new_node
     # if we DO have a head in the list
     else:
-      self.tail.set_next(new_node)
+      self.tail.next_node = new_node
       self.tail = new_node
 
 
@@ -151,10 +151,10 @@ class LinkedList:
     # return head_value 
 
     # # MATT MCCARLEY'S VERSION
-    #   # Is there a head?
-    # if not self.head:
-    #   # if list empty do nothing - return nothing
-    #   return None
+      # Is there a head?
+    if not self.head:
+      # if list empty do nothing - return nothing
+      return None
 
     # if head has no next, there is a single element in the LL. 
     if not self.head.get_next():
@@ -182,8 +182,8 @@ class LinkedList:
   '''
 
   def contains(self, value):
-    if self.head is None:
-      return False
+    # if self.head is None:
+    #   return False
     
     # # Artem's Version
     # # Loop through each node, until we see the value, or we cannot go
@@ -204,7 +204,7 @@ class LinkedList:
     if not self.head:
       return False
 
-    # Get a ref to the node we're currently at; update this as we traverse through the LL
+    # Get a ref to the node we're currently at; update this as we traverse through a LL
     current = self.head
     # Check to see if we're at a valid node
     while current:
@@ -219,17 +219,17 @@ class LinkedList:
   
 
 # example
-# linked_list = LinkedList()
+linked_list = LinkedList()
 
-# linked_list.add_to_head(0)
-# linked_list.add_to_tail(1)
-# print(f'does our LL contain 0? {linked_list.contains(0)}')
-# print(f'does our LL contain 1? {linked_list.contains(1)}')
-# print(f'does our LL contain 2? {linked_list.contains(2)}')
+linked_list.add_to_head(0)
+linked_list.add_to_tail(1)
+print(f'does our LL contain 0? {linked_list.contains(0)}')
+print(f'does our LL contain 1? {linked_list.contains(1)}')
+print(f'does our LL contain 2? {linked_list.contains(2)}')
 
-# linked_list.add_to_head(2)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.add_to_head(5)
-# print(f'the start of the list is {linked_list.head.value}')
-# linked_list.remove_head()
-# print(f'the start of the list is {linked_list.head.value}')
+linked_list.add_to_head(2)
+print(f'The start of the list is {linked_list.head.value}')
+linked_list.add_to_head(5)
+print(f'The start of the list is {linked_list.head.value}')
+linked_list.remove_head()
+print(f'The start of the list is {linked_list.head.value}')
