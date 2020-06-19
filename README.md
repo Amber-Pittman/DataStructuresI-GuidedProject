@@ -66,6 +66,75 @@ When we're talking about runtime complexity, it's always going to be in relation
             * Then, we want to multiply the sum by the number of times the for loop runs in relation
             to n.
     
+### Data Structures
+
+Data structures provide: 
+    
+* Data storage
+
+* Accessibility to the data
+    
+    * arr[3]
+
+    * data_struct.read()
+
+* Insertion - add data to the Data Structure. Insertion adds a whole new item to the data structure. 
+    
+    * array.append()
+
+    * dict["new_key"] = value
+
+* Deletion
+
+* Search through a data structure. Search is considered a core function because we often figure out if certain data is or is not in a data structure. Otherwise, why would we even use a data structure if there wasn't some kind of search involved? 
+
+### Linked Lists
+
+1. Linked Lists also have all of those abilities found in Data Structures as well. 
+        
+    * Linked Lists stores information a little differently. 
+
+    * Consider LL as sort of linear data structures. 
+        
+        * Essentially, they store data in a linear way and almost usually guarantee that the data's order will be kept. 
+        
+        * If it's at the back of a linear data structure, it's going to stay there until you remove/add something else to the end of it.  
+
+    * Linked lists can be thought of as a bunch of values that are literally just linked to each other. 
+        
+        *  Node --- Node --- Node --- Node
+
+           | 1 |-------| 2 |-------| 3 |-------| 4 |
+
+        * You can store whatever you want in these values
+
+        * Each of the these values knows how to get to the next one because they are linked.
+
+    * The OS does not need to find space large enough to fit all the items in the linked list. It will place individual nodes in individual spaces. The nodes will find each other with pointers. But you will need to know the start in order to access it.
+
+2. Arrays are one big combined chunk and each item is right next to each other. That is not the case with LL. A LL has the distinction where each node knows how to get to the next one.
+
+    * What's the use of LL when we can use an array? If we implement our LL properly, we may have some serious wins over some of the core functions that Data Structures have. 
+
+    * If we wanted to delete from an array, we would have to go in, delete the item, the move the subsequent items over to get rid of the empty hole in the array. 
+        
+        * If the array was 1000s of items long, we would have to have to painfully move over each one of the elements over one by one. In this case, the runtime would be O(n) to delete - where n is the length of the array. It's not the worst, but it's not great either. 
+
+        * If we need to delete a lot, then we're probably going to start to feel it. 
+
+    * Likewise, what would it take to add an element to an array? If you wanted to insert something between 2 elements in an array, you'd need to make space between them and then move everything on the right side over a space to insert it into the array.
+
+        * Inserting into an array would be O(n) just like deletion. Obviously, not great. 
+
+    * If we want to find out what the 2nd element in the array is, it's going to be Constant time - O(1). 
+
+    * With arrays, the OS is going to find a spot where it can fit **_all_** the items of the array.
+
+3. A Linked List's node only needs to know 2 things:
+    
+    * The value
+
+    * The next node
 
 ### Stacks
 
