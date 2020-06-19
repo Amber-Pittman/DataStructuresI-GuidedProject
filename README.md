@@ -70,23 +70,23 @@ When we're talking about runtime complexity, it's always going to be in relation
 
 Data structures provide: 
     
-    * Data storage
+* Data storage
 
-    * Accessibility to the data
-        
-        * arr[3]
+* Accessibility to the data
+    
+    * arr[3]
 
-        * data_struct.read()
+    * data_struct.read()
 
-    * Insertion - add data to the Data Structure. Insertion adds a whole new item to the data structure. 
-        
-        * array.append()
+* Insertion - add data to the Data Structure. Insertion adds a whole new item to the data structure. 
+    
+    * array.append()
 
-        * dict["new_key"] = value
+    * dict["new_key"] = value
 
-    * Deletion
+* Deletion
 
-    * Search through a data structure. Search is considered a core function because we often figure out if certain data is or is not in a data structure. Otherwise, why would we even use a data structure if there wasn't some kind of search involved? 
+* Search through a data structure. Search is considered a core function because we often figure out if certain data is or is not in a data structure. Otherwise, why would we even use a data structure if there wasn't some kind of search involved? 
 
 ### Linked Lists
 
