@@ -85,3 +85,94 @@
     <p align="center">
       <img src="assets/remove_tail.PNG" data-pin-nopin="true" width="600" height="400">
     </p>
+
+### Stacks
+
+We start with a node. The node underlies Linked Lists' structure. Linked Lists underlies the Stack's structure. We're kind of constructing this building where each floor on top relies on the floor below it. Even though we have this thing called Stack, is really just some methods and the size variable that allow us to interact with a LL in a certain way 
+
+1. Initialization of a Stack
+
+    * When we initialize a new stack, we set the storage attribute that's on that stack to be equal to _empty_ linked list. 
+
+        * An empty linked list is a head and a tail that are both set to None when it first starts out.
+
+    * We're also keeping track of a size variable. 
+
+    <br>
+    <p align="center">
+      <img src="assets/stack_init.PNG" data-pin-nopin="true" width="250" height="425">
+    </p>
+
+2. Now, if we push something with the push method, we pass in a value. We call `add_to_tail` on our Linked List. 
+
+    * What happens when we add to tail? If we want to push the string "Matt" onto our stack, we must first create the new node. In the add_to_tail method, we have our empty linked list which underlies the stack so our stack is empty and so is our linked list. 
+
+    * We'll point both the head and tail to the newly created node and it's currently set to None. 
+
+    * The initialized Stack where the head and the tail are both set to None no longer exists since the empty linked list and stack are now no longer empty.
+
+    * The final step is incrementing the size from 0 to 1 due to the new node "Matt."
+
+    <br>
+    <p align="center">
+      <img src="assets/stack_push.PNG" data-pin-nopin="true" width="550" height="400">
+    </p>
+
+    * Let's add another node. We'll go through the same process we've described above for the singly linked list. We'll add to tail. 
+
+        * So far, the only difference between our stack and our linked list is how we interact with it and the size variable. 
+
+        * Now, "Sean" will be on the "top" of the stack. Remember how we consider stacks of papers? Well, the newest one added to the stack is on top.
+
+        * Last In, First Out method
+
+    <br>
+    <p align="center">
+      <img src="assets/stack_push_again.PNG" data-pin-nopin="true" width="550" height="400">
+    </p>
+
+3. Linked lists work perfectly with stacks because all we need to do to have a stack with a linked list is a method to add to the tail and a way to remove the tail. All we ever do is either add to the top of the file (the tail) or remove from the top (by removing the tail).
+
+    * With the `.pop` method, we return None if the size is already at 0. Otherwise, we decrement by 1 and return the new tail. 
+
+### Queues
+
+When initializing a queue with a linked list, it looks the same as when we initialized our stack. There a size variable and we have a linked list that we use for storage. 
+
+We defined a len() method that if we try to find out the length of a queue, it will return the size variable.
+
+1. **_Enqueue -_** When we enqueue an item, someone gets into the line (like a checkout line), what do we do? 
+    
+    * We add to tail. 
+    
+    * We have a size that starts out at 0 and if we initialize a queue, we also initialize a linked list.
+
+    * Our linked list starts out with 2 Nones - 1 for head and 1 for tail.
+
+    * Once the node is created, just like before, the head and tail are both on the same node and it's pointing to None. The size count is now 1. 
+
+    <br>
+    <p align="center">
+      <img src="assets/queue_enqueue.PNG" data-pin-nopin="true" width="325" height="450">
+    </p>
+
+2. **_Dequeue -_** When we dequeue an items, something gets out of the line (like when you finished the checkout process). We just remove the head. Let's say we have 2 nodes in the linked list: Matt and Sean. 
+
+    * We call that remove_head method on linked list. 
+
+    * First In, First Out method
+
+    * Just remember that when we dequeue something, we're going to return the head. 
+
+    * We decrement the size by 1. 
+
+    * Since we're removing the head of the linked list, the head pointer will get placed on the next node in the list. 
+
+    * The "Matt" node will point to None and making no reference to the linked list. It will be trashed by Python. 
+
+    * This leaves the "Sean" node to have the head and tail now since there are no other nodes in this linked list. 
+
+    <br>
+    <p align="center">
+      <img src="assets/queue_dequeue.PNG" data-pin-nopin="true" width="450" height="450">
+    </p>
