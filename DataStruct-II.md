@@ -176,3 +176,37 @@ We defined a len() method that if we try to find out the length of a queue, it w
     <p align="center">
       <img src="assets/queue_dequeue.PNG" data-pin-nopin="true" width="450" height="450">
     </p>
+
+### Doubly Linked Lists
+
+Doubly linked lists require a different type of node than a singly linked list. Before, all we had was value and next. With doubly linked lists, we now have prev and then 2 pointers. 
+
+1. Initialize New ListNode Class
+    
+    * We call ListNode and pass in the value, "Matt." 
+
+    * Prev and Next point to None by default. This is a very similar logic to that of singly linked list classes. The only difference is that we now have a _pre-pointer_ that goes backwards on Prev. 
+
+    <br>
+    <p align="center">
+      <img src="assets/listNode_init.PNG" data-pin-nopin="true" width="500" height="300">
+    </p>
+
+2. When using the method, insert_after(), we're referencing the "Matt" node. We will pass in the new value of "Sean."
+
+    * The first thing we do is have current_next. Current_next points to self.next. Self is the "Matt" node. On self, next is None. So current_next is pointing to next's None value.
+
+    * We then create a new ListNode with self.next. Next will no longer point to None anymore. Instead, it will point to a new ListNode. 
+
+        * Now that we have the new value of "Sean" passed into the new ListNode. 
+
+        * Since we have a previous ListNode, self is in reference to the "Matt" node. The prev pointer will point at "Matt."
+
+        * The Matt node's next value will be set to the Sean node. And then the Sean node's next pointer will be set to None. The current_next will just go away. 
+
+    * We now check to see if next is another node or if it is None. 
+    
+    <br>
+    <p align="center">
+      <img src="assets/listNode_insert_after.PNG" data-pin-nopin="true" width="650" height="350">
+    </p>
