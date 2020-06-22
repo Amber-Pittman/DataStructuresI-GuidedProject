@@ -4,7 +4,7 @@
 
 1. When we initialize a node, we can pass in the value and we can pass in the next node. 
 
-  * When we initialize a new node, the head has the value but because it's the only node, the tail is None. Next node points to None. 
+    * When we initialize a new node, the head has the value but because it's the only node, the tail is None. Next node points to None. 
 
 2. If we want to get the value of a node, when we call `.get_value(self)`, we return self's value. If we called get value on our singular node, it would return just the information in the head. It references the instance of the class Node.  It would not return the entire node because in our Node class, the get_value function says to  `return self.value`, not just `return self`.
 
@@ -20,68 +20,68 @@
 
 6. If we have an empty linked list and we want to add something to the tail, we have our `add_to_tail(self, value)` where we accept a _value_. We are **not** passing in a node; we're passing in a value. The add to tail method is responsible for creating the node. When we call `LinkedList.add_to_tail("Matt")`, we're passing in the value of "Matt."
 
-  * The first thing that happens it that we've got a brand new node that gets created with the value of "Matt" and the next node gets a pointer to None. 
+    * The first thing that happens it that we've got a brand new node that gets created with the value of "Matt" and the next node gets a pointer to None. 
 
-  * The logic here is if we have an empty LL, someone wants to add something to the tail but it actually needs to be added to both the head and the tail. So the value "Matt" is actually the head and the tail. At the end of adding to tail if the thing is blank, the next node points to None while the whole node of "Matt" has both the head and the tail. This is our whole linked list.
+    * The logic here is if we have an empty LL, someone wants to add something to the tail but it actually needs to be added to both the head and the tail. So the value "Matt" is actually the head and the tail. At the end of adding to tail if the thing is blank, the next node points to None while the whole node of "Matt" has both the head and the tail. This is our whole linked list.
 
-  <br>
-  <p align="center">
-    <img src="assets/add_to_tail.PNG" data-pin-nopin="true" width="450" height="350">
-  </p>
+    <br>
+    <p align="center">
+      <img src="assets/add_to_tail.PNG" data-pin-nopin="true" width="450" height="350">
+    </p>
 
 7. Let's add another thing to tail. We're going to pass in the value - a string - "Sean." Like before, the next node is None again. Then, we're going to reference it, called new_node, that is going to point to the whole node (the value and the pointer).
 
-  * If we check for a head, we see that it does have one. The head is pointing to the "Matt" node. Ditto for tail. Now, if we do `self.head`, it will return the Matt node. 
+    * If we check for a head, we see that it does have one. The head is pointing to the "Matt" node. Ditto for tail. Now, if we do `self.head`, it will return the Matt node. 
 
-  * Since the if statement is checking for a falsy value but receives truthy, we will go into the else statement. It references the `self.tail` that's in the Matt node. We call the `.set_next()` method to it. The set next method comes from the Node class b/c the tail is a reference to the Matt node. Set next expects an _entire_ node. 
+    * Since the if statement is checking for a falsy value but receives truthy, we will go into the else statement. It references the `self.tail` that's in the Matt node. We call the `.set_next()` method to it. The set next method comes from the Node class b/c the tail is a reference to the Matt node. Set next expects an _entire_ node. 
 
-  * Now what does our LL have? Remember, the LL's actual data that's being stored is just these two variables, head and tail.
-  
-  <br>
-  <p align="center">
-    <img src="assets/add_another_to_tail.PNG" data-pin-nopin="true" width="500" height="350">
-  </p>
+    * Now what does our LL have? Remember, the LL's actual data that's being stored is just these two variables, head and tail.
+    
+    <br>
+    <p align="center">
+      <img src="assets/add_another_to_tail.PNG" data-pin-nopin="true" width="500" height="350">
+    </p>
 
 8. When we call LL's remove head method, the linked list's reference is the head and tail. 
 
-  * The remove head method will first check to see if there is a head available at all. If there isn't one, there's nothing else for the remove head method to do here. 
+    * The remove head method will first check to see if there is a head available at all. If there isn't one, there's nothing else for the remove head method to do here. 
 
-  * The next thing the method does is to see if there is just a single element with the `.get_next()` method. 
+    * The next thing the method does is to see if there is just a single element with the `.get_next()` method. 
 
-  * Finally, it checks for the value of the head that we want to remove and return the value of "Matt." It is _not_ the node, just the string "Matt."
+    * Finally, it checks for the value of the head that we want to remove and return the value of "Matt." It is _not_ the node, just the string "Matt."
 
-  * When you delete the current head from the _linked list_, head will now point to the "Sean" node. 
+    * When you delete the current head from the _linked list_, head will now point to the "Sean" node. 
 
-  * The "Matt" node still exists in memory but it is no longer a part of the linked list with the "Sean" node. The "Matt" node still points to the "Sean" node - it's just that the LL no longer has a reference to it.
+    * The "Matt" node still exists in memory but it is no longer a part of the linked list with the "Sean" node. The "Matt" node still points to the "Sean" node - it's just that the LL no longer has a reference to it.
 
-  * Eventually, Python will see that nothing is actually referencing the "Matt" node and decide to clean it up for us (garbage collection). 
+    * Eventually, Python will see that nothing is actually referencing the "Matt" node and decide to clean it up for us (garbage collection). 
 
-  <br>
-  <p align="center">
-    <img src="assets/remove_head.PNG" data-pin-nopin="true" width="500" height="325">
-  </p
+    <br>
+    <p align="center">
+      <img src="assets/remove_head.PNG" data-pin-nopin="true" width="500" height="325">
+    </p>
 
 9. In our example of a Linked List, we have 2 items in it. We're going to remove the tail. 
 
-  * In this method, we will make sure that there's a head (otherwise there's no point in going through the rest of the block of code).
+    * In this method, we will make sure that there's a head (otherwise there's no point in going through the rest of the block of code).
 
-  * The if statement is checking to see if this is a single item linked list. 
+    * The if statement is checking to see if this is a single item linked list. 
 
-  * The `current` is pointing to the head node. 
+    * The `current` is pointing to the head node. 
 
-  * While the current head does not also contain the tail, move the current to the next node until it finds the tail. It "walks" us down the list until we get to the tail. The reason we had to walk current down and get it to the one _before_ tail, is because once we remove the tail, we have to reassign it to whatever the current is. Current was the one before the original tail. 
+    * While the current head does not also contain the tail, move the current to the next node until it finds the tail. It "walks" us down the list until we get to the tail. The reason we had to walk current down and get it to the one _before_ tail, is because once we remove the tail, we have to reassign it to whatever the current is. Current was the one before the original tail. 
 
-  * Once we find the tail, we are done with the while loop. 
+    * Once we find the tail, we are done with the while loop. 
 
-  * Current is assigned to self.tail (now it's "Sean" instead fo "Beej"). Once that's done, we won't need current anymore. We're going to return the value of "Beej"
+    * Current is assigned to self.tail (now it's "Sean" instead fo "Beej"). Once that's done, we won't need current anymore. We're going to return the value of "Beej"
 
-  * The "Sean" node is still referencing the "Beej" node and we don't want that anymore. We need to set the tail to None. We fix that by calling `self.tail.set_next` and passing in None as a parameter.
+    * The "Sean" node is still referencing the "Beej" node and we don't want that anymore. We need to set the tail to None. We fix that by calling `self.tail.set_next` and passing in None as a parameter.
 
-  * "Sean" is no longer referencing "Beej" and it's tail is now saying None. The "Beej" node is still in memory but it is no longer chained in our linked list. As far as the linked list is concerned, we can forget about "Beej."
+    * "Sean" is no longer referencing "Beej" and it's tail is now saying None. The "Beej" node is still in memory but it is no longer chained in our linked list. As far as the linked list is concerned, we can forget about "Beej."
 
-  * Finally, we can go ahead and return the new value - "Sean."
+    * Finally, we can go ahead and return the new value - "Sean."
 
-  <br>
-  <p align="center">
-    <img src="assets/remove_tail.PNG" data-pin-nopin="true" width="600" height="400">
-  </p
+    <br>
+    <p align="center">
+      <img src="assets/remove_tail.PNG" data-pin-nopin="true" width="600" height="400">
+    </p>
