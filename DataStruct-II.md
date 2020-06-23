@@ -210,3 +210,44 @@ Doubly linked lists require a different type of node than a singly linked list. 
     <p align="center">
       <img src="assets/listNode_insert_after.PNG" data-pin-nopin="true" width="650" height="350">
     </p>
+
+    * Insert_before is really similar so we're not going through it. It's the same but in reverse. 
+
+3. What if we wanted to delete a ListNode entirely? What if we wanted to delete the 2nd ListNode (the "Sean" node)? 
+
+    * If the node has a prev, we look at that prev to determine that prev is not None. Then we take the prev ListNode's next (Matt's next) and point it to the 3rd ListNode (Beej).
+
+    * We used Sean's pre-pointer to go to Matt. Matt's next then skips over to Beej. 
+
+    * If next is not None, then take Beej's pre-pointer, jump over Sean and point back to Matt.
+
+    * At this point, the 2nd node (Sean) is still pointing at things. But in the chain, you cannot get to the node from Matt or Beej. The only way you can access it is if you have an exact reference in memory for the 2nd node.
+
+    * Since Matt and Beej are jumping over Sean, Sean is deleted from the collection.
+
+    <br>
+    <p align="center">
+      <img src="assets/listNode_del.PNG" data-pin-nopin="true" width="650" height="350">
+    </p>
+
+4. Add to Head Method Overview
+
+    * For the add_to_head method, when initializing, both the head and the tail are pointing to None. The length of the DLL has a value of 1 _if_ the node is _not None_. In our case, it is None so our length is 0 at the moment.
+
+    * If it did have a head and tail, the length would become 1. The head and tail are both referencing the new ListNode we created.
+
+    <br>
+    <p align="center">
+      <img src="assets/ddl_init.PNG" data-pin-nopin="true" width="600" height="400">
+    </p>
+
+    * Now we want to add Sean to the head. Create a new node.
+    
+    * Then, we need to check to see if the node is empty. If it is not empty, assign the head and tail to the new node and increment the length.
+
+    * Otherwise, next should point to the head and self's prev should point to the new node. Finally, increment the length of the DDL.
+
+    <br>
+    <p align="center">
+      <img src="assets/ddl_add_head.PNG" data-pin-nopin="true" width="600" height="400">
+    </p>
