@@ -52,7 +52,22 @@ class LinkedList:
     self.head = None # Stores a node, that corresponds to our first 
                         # node in the list 
     self.tail = None # stores a node that is the end of the list
-  
+
+  # when you call print, return all values in the list a -> b -> c -> d -> None
+  def __str__(self):
+    output = ''
+    # we want to loop through the list starting at the head and ending at the tail
+    # current_node is a local variable pointing at the head of the node
+    current_node = self.head # TRACKER NODE VARIABLE
+    
+    # while current node isn't empty, take it's value and add it to the string.
+    while current_node is not None: # LOOP UNTIL IT'S ** NONE ** 
+      output += f'{current_node.value} -> '
+      # set the current node to the next value
+      current_node = current_node.next_node # UPDATE THE TRACKER NODE TO THE NEXT NODE
+    
+    return output
+
   def add_to_head(self, value):
     # Artem's version
     # create a node to add
@@ -244,6 +259,9 @@ linked_list = LinkedList()
 
 linked_list.add_to_head(0)
 linked_list.add_to_tail(1)
+linked_list.add_to_tail(2)
+linked_list.add_to_tail(3)
+print(linked_list)
 print(f'does our LL contain 0? {linked_list.contains(0)}')
 print(f'does our LL contain 1? {linked_list.contains(1)}')
 print(f'does our LL contain 2? {linked_list.contains(2)}')

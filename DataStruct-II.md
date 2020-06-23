@@ -90,6 +90,8 @@
 
 We start with a node. The node underlies Linked Lists' structure. Linked Lists underlies the Stack's structure. We're kind of constructing this building where each floor on top relies on the floor below it. Even though we have this thing called Stack, is really just some methods and the size variable that allow us to interact with a LL in a certain way 
 
+Due to Stacks not needing to loop, Stacks are always O(1).
+
 1. Initialization of a Stack
 
     * When we initialize a new stack, we set the storage attribute that's on that stack to be equal to _empty_ linked list. 
@@ -135,11 +137,15 @@ We start with a node. The node underlies Linked Lists' structure. Linked Lists u
 
     * With the `.pop` method, we return None if the size is already at 0. Otherwise, we decrement by 1 and return the new tail. 
 
+4. With stacks, you don't necessarily care about what's in it except for the thing at the very top. 
+
 ### Queues
 
 When initializing a queue with a linked list, it looks the same as when we initialized our stack. There a size variable and we have a linked list that we use for storage. 
 
 We defined a len() method that if we try to find out the length of a queue, it will return the size variable.
+
+Due to Queues not needing to loop, Queues are always O(1).
 
 1. **_Enqueue -_** When we enqueue an item, someone gets into the line (like a checkout line), what do we do? 
     
@@ -179,7 +185,7 @@ We defined a len() method that if we try to find out the length of a queue, it w
 
 ### Doubly Linked Lists
 
-Doubly linked lists require a different type of node than a singly linked list. Before, all we had was value and next. With doubly linked lists, we now have prev and then 2 pointers. 
+Doubly linked lists require a different type of node than a singly linked list. Before, all we had was value and next. With doubly linked lists, we now have prev, the head, and the tail. Although DLL's are more flexible, they use more memory. 
 
 1. Initialize New ListNode Class
     
@@ -209,4 +215,45 @@ Doubly linked lists require a different type of node than a singly linked list. 
     <br>
     <p align="center">
       <img src="assets/listNode_insert_after.PNG" data-pin-nopin="true" width="650" height="350">
+    </p>
+
+    * Insert_before is really similar so we're not going through it. It's the same but in reverse. 
+
+3. What if we wanted to delete a ListNode entirely? What if we wanted to delete the 2nd ListNode (the "Sean" node)? 
+
+    * If the node has a prev, we look at that prev to determine that prev is not None. Then we take the prev ListNode's next (Matt's next) and point it to the 3rd ListNode (Beej).
+
+    * We used Sean's pre-pointer to go to Matt. Matt's next then skips over to Beej. 
+
+    * If next is not None, then take Beej's pre-pointer, jump over Sean and point back to Matt.
+
+    * At this point, the 2nd node (Sean) is still pointing at things. But in the chain, you cannot get to the node from Matt or Beej. The only way you can access it is if you have an exact reference in memory for the 2nd node.
+
+    * Since Matt and Beej are jumping over Sean, Sean is deleted from the collection.
+
+    <br>
+    <p align="center">
+      <img src="assets/listNode_del.PNG" data-pin-nopin="true" width="650" height="350">
+    </p>
+
+4. Add to Head Method Overview
+
+    * For the add_to_head method, when initializing, both the head and the tail are pointing to None. The length of the DLL has a value of 1 _if_ the node is _not None_. In our case, it is None so our length is 0 at the moment.
+
+    * If it did have a head and tail, the length would become 1. The head and tail are both referencing the new ListNode we created.
+
+    <br>
+    <p align="center">
+      <img src="assets/ddl_init.PNG" data-pin-nopin="true" width="600" height="400">
+    </p>
+
+    * Now we want to add Sean to the head. Create a new node.
+    
+    * Then, we need to check to see if the node is empty. If it is not empty, assign the head and tail to the new node and increment the length.
+
+    * Otherwise, next should point to the head and self's prev should point to the new node. Finally, increment the length of the DDL.
+
+    <br>
+    <p align="center">
+      <img src="assets/ddl_add_head.PNG" data-pin-nopin="true" width="600" height="400">
     </p>

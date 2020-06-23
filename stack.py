@@ -22,12 +22,18 @@ class Stack:
 
     def __len__(self):
         return self.size
-
+    
+    # O(n) when pushing to an array
+    # However, we're using LinkedLists! 
+    # O(1) because of LL :D
     def push(self, value):
         # add an element to the front of our array
         self.size += 1
         self.storage.add_to_head(value)
-
+    
+    # O(n) when popping from an array. 
+    # However, we're using LinkedLists! 
+    # O(1) because of LL :D
     def pop(self):
         # check if empty
         if self.size == 0:
@@ -37,8 +43,16 @@ class Stack:
         node = self.storage.remove_head()
         return node
 
+new_stack = Stack()
+print(len(new_stack))
+new_stack.push(2)
+new_stack.push(3)
+new_stack.push(5)
+print(len(new_stack))
+print(new_stack.storage)
+print(f"Removed value is {new_stack.pop()}")
 
-class QueueTests(unittest.TestCase):
+class StackTests(unittest.TestCase):
     def setUp(self):
         self.stack = Stack()
 
