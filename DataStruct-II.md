@@ -90,6 +90,8 @@
 
 We start with a node. The node underlies Linked Lists' structure. Linked Lists underlies the Stack's structure. We're kind of constructing this building where each floor on top relies on the floor below it. Even though we have this thing called Stack, is really just some methods and the size variable that allow us to interact with a LL in a certain way 
 
+Due to Stacks not needing to loop, Stacks are always O(1).
+
 1. Initialization of a Stack
 
     * When we initialize a new stack, we set the storage attribute that's on that stack to be equal to _empty_ linked list. 
@@ -135,11 +137,15 @@ We start with a node. The node underlies Linked Lists' structure. Linked Lists u
 
     * With the `.pop` method, we return None if the size is already at 0. Otherwise, we decrement by 1 and return the new tail. 
 
+4. With stacks, you don't necessarily care about what's in it except for the thing at the very top. 
+
 ### Queues
 
 When initializing a queue with a linked list, it looks the same as when we initialized our stack. There a size variable and we have a linked list that we use for storage. 
 
 We defined a len() method that if we try to find out the length of a queue, it will return the size variable.
+
+Due to Queues not needing to loop, Queues are always O(1).
 
 1. **_Enqueue -_** When we enqueue an item, someone gets into the line (like a checkout line), what do we do? 
     
@@ -179,7 +185,7 @@ We defined a len() method that if we try to find out the length of a queue, it w
 
 ### Doubly Linked Lists
 
-Doubly linked lists require a different type of node than a singly linked list. Before, all we had was value and next. With doubly linked lists, we now have prev and then 2 pointers. 
+Doubly linked lists require a different type of node than a singly linked list. Before, all we had was value and next. With doubly linked lists, we now have prev, the head, and the tail. Although DLL's are more flexible, they use more memory. 
 
 1. Initialize New ListNode Class
     
