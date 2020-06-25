@@ -125,6 +125,21 @@ class DoublyLinkedList:
         self.delete(node)
         # add the input node to the head
         self.add_to_head(old_value)
+
+    # MATT MCCARLEY'S VERSION
+    # def move_to_front(self, node):
+    #     # if it's already at the head, do nothing
+    #     if node is self.head:
+    #       return
+    #     # otherwise delete the input node from it's place
+    #     old_value = node.value
+    #     if node is self.tail:
+    #       self.remove_from_tail()
+    #     else:
+    #       node.delete()
+    #       self.length -= 1
+    #     # add the input node to the head
+    #     self.add_to_head(old_value)
         
 
     """Removes the input node from its current spot in the 
@@ -142,16 +157,16 @@ class DoublyLinkedList:
     """Removes a node from the list and handles cases where
     the node was the head or the tail"""
     def delete(self, node):
-        # if both the head and tail is already empty, do nothing
+        # if both the head and tail are already empty, do nothing
         if self.head is None and self.tail is None:
           return
         # decrement the length since we're deleting a node
         self.length -= 1
-        # if the node only has one element, set both head and tail to None
+        # if the DLL only has one element, set both head and tail to None
         if self.head == self.tail:
           self.head = None
           self.tail = None
-        # if the node is THE head, move the head to the next node before deleting
+        # if the DLL is THE head, move the head to the next node before deleting
         elif self.head == node:
           self.head = node.next
           node.delete()
@@ -159,7 +174,7 @@ class DoublyLinkedList:
         elif self.tail == node:
           self.tail = node.prev
           node.delete()
-        # otherwise, just delete the node
+        # If there are 3 or more nodes in the DLL, just delete the node
         else:
           node.delete()
         
