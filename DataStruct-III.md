@@ -133,10 +133,55 @@ In a way, a linked list is just a really simple tree.
 
 5. Rules for a Binary Search Tree:
 
-  * For each node, all elements in the left subtree are less than or equal
+  * For each node, all elements in the left subtree are less than or equal the node it's attached to.
 
-  * For each node, all elements in the right subtree are greater than
-
-  * Each of the subtrees must also obey this constraint
+  * For each node, all elements in the right subtree are greater than or equal to the node.
 
   * A binary tree is _not_ the same as a binary search tree so always watch out for wording.
+
+  * **_Duplicates** - BST have different ways of handling duplicates.
+
+      * Some BST don't allow duplicates. 
+      
+      * Others do allow them but you have to create a constraint that the duplicates will go on a certain side. 
+      
+      * For some, in addition to having a value, a left, and a right will also have count variable. 
+
+        * Let's say we have a node with the value of 42. However, we want to insert into the node a new one that also has a value of 42. Instead of adding a new child, we would increment the count of 42 to 2. 
+
+      * For us, we're going to put duplicates on the right (based on the BTS test file).
+
+      * Each of the subtrees must also obey this constraint
+
+      <br>
+      <p align="center">
+        <img src="assets/bst_dups.PNG" data-pin-nopin="true" width="600" height="450">
+      </p>
+  
+6. When should we use a binary search tree? In order for us to follow the BST Rules, we need to be able to make a less-than or greater-than comparison. BSTs can be used for strings in addition to numbers. 
+
+7. What's a binary search? 
+
+    * Think about the guessing game where you guess the number and the other person tells you if it's higher or lower of a range. If you start in the middle of the range, you can significantly lower the number of guesses you need to make before you get the correct one. 
+
+        * In order to use the above strategy, not only do the values have to be sortable, they also have to already be sorted.
+
+        * Range: 1 - 15  
+
+        * 1st Guess: 8  -- Go Higher!
+
+        * 2nd Guess: 12  -- Go Higher!
+
+        * 3rd Guess: 14  -- Go Lower!
+
+        * 4th Guess: 13  -- Correct! You win!
+
+8. The goal of BSTs when you create it and insert nodes into it, is to do it in such a way that it's balanced. 
+
+### Logarithms
+
+When we talk about Big O, a binary search tree is O(log n). O(log n) is _better_ than O(n). O(log n) isn't as good as O(1) but it's really close.
+
+The reason BSTs are important and really helpful is they're very efficient if it's balanced tree. When the tree is balanced, they are very efficient at searching for an item. BSTs are the quickest way to sort through an _ordered_ collection of data if you have it in a balanced binary search tree. 
+
+When we did the [binary search guessing game](https://www.khanacademy.org/computing/computer-science/algorithms/intro-to-algorithms/a/a-guessing-game), if you were to do a [log2 of 15](https://www.logcalculator.net/log-2), you'd get a rounded up number of 4; meaning that on average it would take 4 guesses to get the correct one.
